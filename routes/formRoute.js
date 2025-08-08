@@ -18,4 +18,14 @@ router.post("/forms", async (req, res) => {
   }
 });
 
+// / GET - retrieve all forms
+router.get("/forms", async (req, res) => {
+  try {
+    const forms = await Form.find().sort({ createdAt: -1 }); // latest first
+    res.json(forms);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

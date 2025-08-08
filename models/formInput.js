@@ -24,4 +24,10 @@ const FormSchema = new mongoose.Schema({
   },
 });
 
+// 🔹 Static method to create & save in one step
+FormSchema.statics.saveForm = async function (formData) {
+  const form = new this(formData); // "this" refers to the Form model
+  return await form.save();
+};
+
 module.exports = mongoose.model("Form", FormSchema);

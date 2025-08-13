@@ -20,17 +20,6 @@ app.get("/", (req, res) => {
 app.use("/api/form", formRoute);
 app.use("/api/admin", adminRoute);
 
-// // Created an Admin Username and password
-// mongoose.connect(process.env.DB_URI).then(async () => {
-//   const admin = new Admin({
-//     username: "controLEO",
-//     password: "controlLEOADMIN2025#",
-//   });
-//   await admin.save();
-//   console.log("Admin created");
-//   process.exit();
-// });
-
 // Server and DB
 const port = process.env.PORT;
 const start = async () => {
